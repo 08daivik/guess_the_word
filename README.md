@@ -262,7 +262,6 @@ This project is open-source and available under the **MIT License**.
 ## 📧 Author
 
 **Developed by:** Daivik S M
-**College:** SJCE Mysuru
-**Role:** BE CSE (3rd Year) — Alumni Secretary
+
 
 

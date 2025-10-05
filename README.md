@@ -87,8 +87,8 @@ Guess the word/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/guess-the-word.git
-cd guess-the-word
+git clone https://github.com/<08daivik>/guess_the_word.git
+cd guess_the_word
 ```
 
 ---
@@ -244,11 +244,6 @@ You can:
 
 ---
 
-## 🌐 Demo Preview (Optional Section)
-
-> *Add screenshots of gameplay, login, and admin reports here if you want your GitHub to look more professional.*
-
----
 
 ## 🧑‍💻 Developer Notes
 
@@ -275,6 +270,4 @@ This project is open-source and available under the **MIT License**.
 **College:** SJCE Mysuru
 **Role:** BE CSE (3rd Year) — Alumni Secretary
 
----
 
-Would you like me to tailor this `README.md` slightly more toward your **internship submission** (with your name, date, and brief abstract on objectives), or should I keep it clean like a public GitHub project?

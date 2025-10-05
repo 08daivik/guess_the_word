@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2 class="text-center mb-4">📊 Admin Dashboard</h2>
+  <p class="text-center text-muted mb-4">
+    View daily game statistics and individual user reports.
+  </p>
+
+  <!-- DAILY REPORT -->
+  <div class="card shadow-sm p-4 mb-4">
+    <h4 class="mb-3">📅 Daily Report</h4>
+    <form id="day-form" class="d-flex flex-wrap gap-2 mb-3">
+      <input type="date" id="report-date" class="form-control w-auto" required>
+      <button type="submit" class="btn btn-primary">Get Daily Report</button>
+    </form>
+    <div id="day-result"></div>
+  </div>
+
+  <!-- USER REPORT -->
+  <div class="card shadow-sm p-4">
+    <h4 class="mb-3">👤 User Report</h4>
+    <form id="user-form" class="d-flex flex-wrap gap-2 mb-3">
+      <input type="text" id="username" class="form-control w-auto" placeholder="Enter username" required>
+      <button type="submit" class="btn btn-secondary">Get User Report</button>
+    </form>
+    <div id="user-result"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const resultDivDay = document.getElementById("day-result");
+  const resultDivUser = document.getElementById("user-result");
+
+  // --- DAILY REPORT ---
+  document.getElementById("day-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const date = document.getElementById("report-date").value;
+    const res = await fetch(`/admin/report/day?date=${date}`);
+    const data = await res.json();
+
+    if (!data.ok) {
+      resultDivDay.innerHTML = `<div class="alert alert-danger">${data.msg}</div>`;
+      return;
+    }
+
+    resultDivDay.innerHTML = `
+      <h5 class="mb-3">Report for ${data.date}</h5>
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Date</th>
+            <th>Number of Users Played</th>
+            <th>Number of Correct Guesses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${data.date}</td>
+            <td>${data.users_played}</td>
+            <td>${data.correct_guesses}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h6 class="mt-3">Users who played that day:</h6>
+      ${
+        data.usernames.length
+          ? `<ul class="list-group">${data.usernames.map(u => `<li class="list-group-item">${u}</li>`).join('')}</ul>`
+          : `<div class="alert alert-info">No users played on this date.</div>`
+      }
+    `;
+  });
+
+  // --- USER REPORT ---
+  document.getElementById("user-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const username = document.getElementById("username").value.trim();
+    const res = await fetch(`/admin/report/user?username=${username}`);
+    const data = await res.json();
+
+    if (!data.ok) {
+      resultDivUser.innerHTML = `<div class="alert alert-danger">${data.msg}</div>`;
+      return;
+    }
+
+    if (data.report.length === 0) {
+      resultDivUser.innerHTML = `<div class="alert alert-info">No data found for user <strong>${username}</strong>.</div>`;
+      return;
+    }
+
+    const rows = data.report.map(r => `
+      <tr>
+        <td>${r.date}</td>
+        <td>${r.words_tried}</td>
+        <td>${r.correct}</td>
+      </tr>
+    `).join('');
+
+    resultDivUser.innerHTML = `
+      <h5 class="mb-3">Report for User: <strong>${data.username}</strong></h5>
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Date</th>
+            <th>Number of Words Tried</th>
+            <th>Number of Correct Guesses</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    `;
+  });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,18 @@
+
+
+{% extends "base.html" %}
+{% block content %}
+<div class="mt-3">
+  <h2 class="text-center mb-3">Play</h2>
+  <div id="game-area" class="text-center">
+    <p><button id="start-btn" class="btn btn-primary">Start New Game</button></p>
+    <div id="messages" class="mb-3"></div>
+    <div id="guesses" class="mb-3"></div>
+    <div id="guess-form" style="display:none;">
+      <input id="guess-input" maxlength="5" placeholder="Enter 5-letter word" class="form-control d-inline-block" style="width:200px;">
+      <button id="submit-guess" class="btn btn-success">Submit</button>
+    </div>
+  </div>
+</div>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+{% endblock %}

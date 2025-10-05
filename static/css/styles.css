@@ -1,0 +1,95 @@
+/* Dark theme */
+body {
+    background-color: #121212; /* dark background */
+    color: #E2E8F0;           /* light text color */
+}
+
+.navbar {
+    background-color: #1F1F1F !important; /* darker navbar */
+}
+
+.nav-link {
+    color: #E2E8F0 !important;
+}
+
+.nav-link:hover {
+    color: #38B2AC !important; /* accent hover color */
+}
+
+.card {
+    background-color: #1E1E1E;
+    color: #E2E8F0;
+    border: 1px solid #333;
+}
+
+.table {
+    color: #E2E8F0;
+}
+
+.table-dark th, .table-dark td {
+    background-color: #2D2D2D !important;
+    color: #E2E8F0 !important;
+}
+
+/* Game colors */
+.letter-green {
+    background-color: #38B2AC !important; /* correct & right pos */
+    color: #fff;
+}
+
+.letter-orange {
+    background-color: #F6AD55 !important; /* correct & wrong pos */
+    color: #fff;
+}
+
+.letter-grey {
+    background-color: #4A5568 !important; /* not in word */
+    color: #fff;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #38B2AC;
+    border-color: #38B2AC;
+}
+
+.btn-primary:hover {
+    background-color: #2C7A7B;
+    border-color: #2C7A7B;
+}
+
+.btn-success {
+    background-color: #805AD5;
+    border-color: #805AD5;
+}
+
+.btn-success:hover {
+    background-color: #6B46C1;
+    border-color: #6B46C1;
+}
+
+.btn-secondary {
+    background-color: #718096;
+    border-color: #718096;
+}
+
+.btn-secondary:hover {
+    background-color: #4A5568;
+    border-color: #4A5568;
+}
+
+/* Alerts */
+.alert-danger {
+    background-color: #C53030;
+    color: #fff;
+}
+
+.alert-info {
+    background-color: #3182CE;
+    color: #fff;
+}
+
+.alert-success {
+    background-color: #38A169;
+    color: #fff;
+}

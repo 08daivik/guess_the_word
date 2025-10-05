@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="col-md-4 offset-md-4 mt-5">
+  <h2 class="mb-3 text-center">Register</h2>
+  <form method="post">
+    <div class="mb-3">
+      <label>Username</label>
+      <input name="username" class="form-control" placeholder="At least 5 chars with UPPER and lower" required>
+    </div>
+    <div class="mb-3">
+      <label>Password</label>
+      <input name="password" type="password" class="form-control" placeholder="At least 5 chars with letters, digits and $%*@" required>
+    </div>
+    <button class="btn btn-success w-100">Register</button>
+  </form>
+</div>
+{% endblock %}
+

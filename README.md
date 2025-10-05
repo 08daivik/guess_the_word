@@ -1,9 +1,4 @@
-Excellent 👏 — you’ve done all the hard work already (debugging, database linking, admin dashboard, etc.).
-Now you just need a **professional `README.md`** for GitHub that documents everything clearly.
 
-Here’s a complete, **ready-to-upload Markdown README** you can use for your repository — formatted for clarity, professionalism, and completeness 👇
-
----
 
 # 🧩 Guess The Word — Flask Web App
 
